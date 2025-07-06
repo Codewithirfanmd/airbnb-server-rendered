@@ -1,0 +1,19 @@
+<header>
+    <ul >
+        <li><a href="/">Home</a></li>
+        <% if(isLoggedIn) {%>
+            <% if(user.userType == "guest") {%>
+            <li><a href="/favourites">Favourites</a></li>
+            <li><a href="/reserve">Reserve</a></li>
+            <li><a href="/bookings">Bookings</a></li>
+            <%} else {%>
+                <li><a href="/host/homeList">Host Homes</a></li>
+                <li><a href="/host/addHome">Add Home</a></li>
+            <%}%>
+            <form action="/logout" method="post"> <button class="logout-btn">Logout</button></form>
+        <%} else {%>
+            <li><a href="/login">Login</a></li>
+            <li><a href="/signup">SignUp</a></li>
+        <%}%>
+    </ul>
+</header>

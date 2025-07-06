@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Favourites</title>
+    <link rel="stylesheet" href="/home.css">
+</head>
+<body>
+    <%- include("../partials/header")%>
+    <main>
+        <%if(allFavourites.length == 0) {%>
+        <h1 class="top-heading">Add Some Favourites to display Here!</h1>
+        <%} else {%>
+            <h1 class="top-heading">My Favourites:</h1>
+
+            <div class="card-container">
+                <%allFavourites.forEach((home)=> {%>
+                    <div class="card">
+                        <div class="img-container">
+                            <img src="<%= home.photo%>" alt="">
+                        </div>
+                        <div class="content">
+                            <p><%= home.houseName%></p>
+                            <div class="flex-container">
+                                <span>₹<%= home.price %> for 1 night</span>
+                                <span>★<%= home.rating %></span>
+                            </div>
+                        </div>
+                        <div class="ft-editndel">
+                            <form action="/remove-favourite/<%= home._id%>" method="POST">
+                                <button class="detail-btn">Remove</button>
+                            </form>
+                            <a href="" class="book-btn">Book</a>
+                        </div>
+                    
+                    </div>
+                <%})%>
+            </div>
+        <%}%>
+    </main>
+</body>
+</html>

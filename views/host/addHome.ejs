@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>contact-us</title>
+    <link rel="stylesheet" href="/home.css">
+</head>
+<body>
+    <form action="/host/<%= editing ? 'edit-home': 'addHome'%>" method="post" enctype="multipart/form-data">
+        <h1><%= editing? "Edit Your" : "Please register"%> Home here:</h1>
+        <label for="homeName">House Name</label>
+        <input type="hidden" name="id" value="<%= editing ? home._id: ''%>">
+        <input class="input-block" type="text" id="homeName" name="houseName" value="<%= editing ? home.houseName: ''%>" placeholder="Enter House Name">
+        <label for="picture">Photo</label>
+        <input class="input-block" type="file" id="picture" name="photo" multiple accept="image/*">
+        <label for="rating">Rating</label>
+        <input class="input-block" type="text" id="rating" name="rating" value="<%= editing ? home.rating: ''%>" placeholder="How much do you rate">
+        <label for="price">Price</label>
+        <input class="input-block" type="text" id="price" name="price" value="<%= editing ? home.price: ''%>" placeholder="Price per night">
+        <br>
+        <button><%= editing ? "Update Home": "Add Home"%></button>
+    </form>
+</body>
+</html>

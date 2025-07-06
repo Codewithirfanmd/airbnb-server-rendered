@@ -1,0 +1,52 @@
+html {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0 20px;
+}
+
+.top-heading {
+    text-align: center;
+}
+
+.card-container {
+    display: flex;
+    gap: 18px;
+    margin-bottom: 20px;
+
+}
+
+.card {
+    max-width: 183px;
+}
+
+.card p {
+    margin-block: 2px;
+    font-size: 16px;
+}
+
+.img-container {
+    height: min-content;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.card img {
+    width: 183px;
+    height: 171px;
+
+    object-fit: cover;
+}
+
+.content {
+    padding-inline: 10px;
+}
+
+.flex-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 12px;
+}

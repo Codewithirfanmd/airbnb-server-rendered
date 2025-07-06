@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="/home.css">
+</head>
+<body>
+    <%- include("../partials/header")%>
+    <main>
+        <%if(registeredHomes.length == 0) {%>
+        <h1 class="top-heading">Welcome to airbnb</h1>
+        <%} else {%>
+            <h1 class="top-heading">Here are our registered Homes:</h1>
+
+            <div class="card-container">
+                <%registeredHomes.forEach((home)=> {%>
+                    <div class="card">
+                        <div class="img-container">
+                            <img src="<%= home.photo%>" alt="">
+                        </div>
+                        <div class="content">
+                            <p><%= home.houseName%></p>
+                            <div class="flex-container">
+                                <span>₹<%= home.price %> for 1 night</span>
+                                <span>★<%= home.rating %></span>
+                            </div>
+                        </div>
+                        <div class="ft-editndel">
+                            <a href="/homes/<%= home._id %>" class="detail-btn">Details</a>
+                            <form action="/favourites" method="POST">
+                                <button class="add-fav-home">Add to favourites</button>
+                                <input type="hidden" name="id" value="<%= home._id%>">
+                            </form>
+                        </div>
+                    
+                    </div>
+                <%})%>
+            </div>
+        <%}%>
+    </main>
+</body>
+</html>
